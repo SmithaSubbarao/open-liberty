@@ -382,6 +382,20 @@ public class SpringBootUtilityThinTest extends CommonWebServerTests {
         proc.destroy();
     }
 
+    String readTimeout(BufferedReader reader) throws IOException {
+        for (int i = 0; i < 20; i++) {
+            if (reader.ready()) {
+                return reader.readLine();
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.interrupted();
+            }
+        }
+        throw new IOException("Timed out trying to read next line");
+    }
+
     private String sendHttpsGet(String path, LibertyServer server) throws Exception {
         String result = null;
         SSLContext sslContext = SSLContext.getInstance("SSL");
