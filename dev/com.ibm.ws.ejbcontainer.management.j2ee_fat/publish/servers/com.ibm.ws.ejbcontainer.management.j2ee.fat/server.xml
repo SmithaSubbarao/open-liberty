@@ -2,7 +2,7 @@
     <include location="../fatTestPorts.xml"/>
 
     <featureManager>
-        <feature>servlet-3.1</feature>
+        <feature>servlet-4.0</feature>
         <feature>restConnector-2.0</feature>
         <feature>ejbLite-3.2</feature>
         <feature>j2eeManagement-1.1</feature>
