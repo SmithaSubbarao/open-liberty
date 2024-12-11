@@ -41,7 +41,6 @@ public class CDITestCheckpoint extends BatchFATHelper {
     @BeforeClass
     public static void setup() throws Exception {
 
-        server = LibertyServerFactory.getLibertyServer("checkpointbatchFAT");
         // Just happens to be a config that works we could reuse.  Could rename.
         BatchFATHelper.setConfig("CDITestCheckpoint/server.xml", testClass);
 
