@@ -96,4 +96,5 @@ src: \
   io.openliberty.springboot.fat30.webflux.app;version=latest,\
   io.openliberty.springboot.fat30.websocket.app;version=latest,\
   io.openliberty.springboot.fat30.security.app;version=latest,\
-  io.openliberty.springboot.fat30.transactions.app;version=latest
+  io.openliberty.springboot.fat30.transactions.app;version=latest,\
+  io.openliberty.springboot.fat30.concurrency.app;version=latest

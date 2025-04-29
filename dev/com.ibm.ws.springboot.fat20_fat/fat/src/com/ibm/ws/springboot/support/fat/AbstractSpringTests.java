@@ -47,7 +47,7 @@ import com.ibm.websphere.simplicity.config.WebApplication;
 import componenttest.topology.impl.LibertyServer;
 import componenttest.topology.impl.LibertyServerFactory;
 
-public abstract class AbstractSpringTests {
+public abstract class AbstractSpringTests { 
 
     @Rule
     public TestName testName = new TestName();
@@ -79,6 +79,8 @@ public abstract class AbstractSpringTests {
     public static final String SPRING_BOOT_20_APP_WEBSOCKET = "com.ibm.ws.springboot.fat20.websocket.app-0.0.1-SNAPSHOT.jar";
     public static final String SPRING_BOOT_20_APP_TRANSACTIONS = "com.ibm.ws.springboot.fat20.transactions.app-0.0.1-SNAPSHOT.war";
     public static final String SPRING_BOOT_20_APP_DATA = "com.ibm.ws.springboot.fat20.data.app-0.0.1-SNAPSHOT.war";
+    public static final String SPRING_BOOT_20_APP_CONCURRENCY = "com.ibm.ws.springboot.fat20.concurrency.app-0.0.1-SNAPSHOT.war";
+
     public static final String LIBERTY_USE_DEFAULT_HOST = "server.liberty.use-default-host";
     public static final String SPRING_LIB_INDEX_CACHE = "lib.index.cache";
     public static final String SPRING_WORKAREA_DIR = "workarea/spring/";
