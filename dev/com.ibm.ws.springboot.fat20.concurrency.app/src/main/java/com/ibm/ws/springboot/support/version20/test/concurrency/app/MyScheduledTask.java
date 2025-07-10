@@ -33,6 +33,7 @@ public class MyScheduledTask {
 	private final CountDownLatch latch = new CountDownLatch(5);
 	private final AtomicBoolean testedAsync1and2Methods = new AtomicBoolean();
 	private final AtomicBoolean testedAsync3Methods = new AtomicBoolean();
+	private final ClassLoader threadContextClassLoader = Thread.currentThread().getContextClassLoader();
 
 	public MyScheduledTask(ConcurrencyTasks concurrencyTasks) {
 		this.concurrencyTasks = concurrencyTasks;;
@@ -54,6 +55,7 @@ public class MyScheduledTask {
 	public void scheduledTask2() throws InterruptedException, Throwable {
 		
 		assertAsyncTask3Method("ScheduledTask2");
+		classloaderNameVerification();
 	}
 
 	@Async
@@ -77,6 +79,19 @@ public class MyScheduledTask {
 			return false;
 		}
 		return true;
+	}
+	
+	public void classloaderNameVerification() throws ClassNotFoundException {
+		
+	 String classNameToVerify = "Liberty";
+	    try {
+	        Class<?> loadedClass = Class.forName(classNameToVerify, false, threadContextClassLoader);
+	        System.out.println("Class " + classNameToVerify + " is found and can be loaded by the current thread's context class loader.");
+	        System.out.println("Thread Context Classloader is: " + threadContextClassLoader);
+	    } catch (ClassNotFoundException e) {
+	        System.err.println("Class " + classNameToVerify + " not found by thread context ClassLoader.");
+	        System.out.println("Thread Context Classloader is: " + threadContextClassLoader);
+	    }
 	}
 
 	public void assertAsyncTask1and2Method(String message) throws Exception {
